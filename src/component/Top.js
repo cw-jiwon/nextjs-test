@@ -1,7 +1,5 @@
+import Image from 'next/image'
+
 export default function Top() {
-	return (
-		<div>
-			<img src='/favicon.ico' alt='logo' />
-		</div>
-	)
+	return <div></div>
 }
