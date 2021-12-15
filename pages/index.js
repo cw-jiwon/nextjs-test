@@ -1,21 +1,26 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect } from 'react'
-import styles from '../styles/Home.module.css'
+import Layout from '../component/Layout'
+import useUser from '../data/useUser'
 
-export default function Home() {
+const IndexPage = () => {
+	const { user, loading, loggedIn } = useUser()
+
+	const DisplayInfo = () => {
+		if (loading) return <div className='container'>Loading</div>
+		if (loggedIn && user._id)
+			return (
+				<div className='container'>
+					{' '}
+					ID: {user._id} <br />
+					Email: {user.email} <br />
+				</div>
+			)
+		return <div className='container'>Login</div>
+	}
 	return (
-		<div>
-			<Head>
-				<title>지원 테스트</title>
-			</Head>
-			<h1 className='title'>
-				Read{' '}
-				<Link href='/posts/first-post'>
-					<a>this page!</a>
-				</Link>
-			</h1>
-		</div>
+		<Layout title='index'>
+			<DisplayInfo />
+		</Layout>
 	)
 }
+
+export default IndexPage

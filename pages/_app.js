@@ -1,16 +1,8 @@
-import Top from '../src/component/Top'
-import Footer from '../src/component/Footer'
-import '../styles/globals.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 // component는 현재 페이지 의미, 페이지 전환 시 컴포넌트 프롭스 변경
 function MyApp({ Component, pageProps }) {
-	return (
-		<div style={{ width: 1000, margin: '0 auto' }}>
-			<Top />
-			<Component {...pageProps} />
-			<Footer />
-		</div>
-	)
+	return <Component {...pageProps} />
 }
 
 export default MyApp
